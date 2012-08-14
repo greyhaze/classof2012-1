@@ -2,10 +2,9 @@
 <h1>
 <?php
 
-foreach($categories as $category){
-	echo $category['categoryName'];
+foreach($dogs as $dog){
+	echo $dog['name'], "<br />";
 }
-echo "hello world";
 ?>
 </h1>
 </body></html>

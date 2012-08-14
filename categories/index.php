@@ -1,6 +1,6 @@
 <?php
-require 'model/categories.php';
+require 'model/dogs.php';
 
-$categories = get_categories();
+$dogs = get_dogs();
 include 'views/list.php';
 ?>
