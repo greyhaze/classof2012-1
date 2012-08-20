@@ -12,7 +12,20 @@ ActiveRecord\Config::initialize(function($cfg)
 			)
 	);
 });
+
+if(array_key_exists('submit', $_POST)){
+	$oPurchase = new Purchase;
+	$oPurchase->date = $_POST['date'];
+	$oPurchase->purchase = $_POST['purchase'];
+	$oPurchase->price = $_POST['price'];
+	$oPurchase->save();
+	//print_r($oPurchase);
+}
+
+
+if(array_key_exists('add', $_POST)){
+	include 'views/add.php';
+}else {
+	include 'views/list.php';
+}
 ?>
-<html><body>
-Hello World!
-</body></html>
