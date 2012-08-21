@@ -6,7 +6,7 @@ ActiveRecord\Config::initialize(function($cfg)
 	$cfg->set_model_directory('model');
 	$cfg->set_connections(
 			array(
-					'development' => 'mysql://root:root@localhost/mealtimes',
+					'development' => 'mysql://root:@localhost/mealtimes',
 					'test' => 'mysql://username:password@localhost/test_database_name',
 					'production' => 'mysql://username:password@localhost/production_database_name'
 			)
