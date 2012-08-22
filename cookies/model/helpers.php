@@ -16,7 +16,8 @@ function addUser($aPost){
 }
 
 function validateUser($aPost){
-	if($aPost['password'] == 'Secret55'){
+	$oUser = User::find_by_username($aPost['username']);
+	if( $aPost['password'] == $oUser->password){
 		return true;
 	}
 	return false;
