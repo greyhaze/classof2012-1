@@ -6,8 +6,8 @@ if(!isset($_SERVER['HTTPS'])){
 	$url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 	//echo $url . "\n";
 	//print_r($_SERVER);
-	//header("Location: " . $url);
-	//exit();
+	header("Location: " . $url);
+	exit();
 }
 
 //setup database
@@ -18,7 +18,7 @@ ActiveRecord\Config::initialize(function($cfg)
 	$cfg->set_model_directory('model');
 	$cfg->set_connections(
 			array(
-					'development' => 'mysql://root:root@localhost/users',
+					'development' => 'mysql://root:@localhost/users',
 					'test' => 'mysql://username:password@localhost/test_database_name',
 					'production' => 'mysql://username:password@localhost/production_database_name'
 			)
