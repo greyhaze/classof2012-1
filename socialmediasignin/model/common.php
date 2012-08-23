@@ -2,7 +2,7 @@
 define('KEY', '95842300516.apps.googleusercontent.com');
 define('SECRET', 'JB2DBmIDDKRmNgsbcmwK4yKm');
 
-define('CALLBACK_URL', 'http://localhost:8888/classof2012/socialmediasignin/');
+define('CALLBACK_URL', 'http://localhost/classof2012/socialmediasignin/');
 define('AUTHORIZATION_ENDPOINT', 'https://accounts.google.com/o/oauth2/auth');
 define('ACCESS_TOKEN_ENDPOINT', 'https://accounts.google.com/o/oauth2/token');
 
@@ -40,6 +40,7 @@ function run_curl($url, $method = 'GET', $postvals = null){
     
     return $response;
 }
+
 
 /***************************************************************************
  * Function: Refresh Access Token

@@ -32,8 +32,14 @@ if($action == 'signup'){
 	include 'views/signup.php';
 	exit();
 }elseif($action == 'save'){
-	addUser($_POST);
-	addCookie($_POST['username']);
+	$sError = addUser($_POST);
+	if($sError == 'success'){
+		addCookie($_POST['username']);
+	}else{
+		echo $sError;
+		include 'views/signup.php';
+		exit();
+	}
 }elseif($action == 'signin'){
 	if(validateUser($_POST)){
 		addCookie($_POST['username']);
