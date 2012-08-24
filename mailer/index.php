@@ -9,13 +9,12 @@ if($action == 'contact'){
 	// In case any of our lines are larger than 70 characters, we should use wordwrap()
 	$message = wordwrap($message, 70);
 	
-	print_r($_SERVER);
 	
 	$headers = 'From: ' . $_SERVER['SERVER_ADMIN'] . "\r\n" .
 			'Reply-To: ' . $_POST['email'] . "\r\n" .
-			"Disposition-Notification-To" . $_POST['email'] . "\r\n" .
+			"Disposition-Notification-To: " . $_POST['email'] . "\r\n" .
 			'X-Mailer: PHP/' . phpversion();
-	
+	echo $headers;
 	
 	// Send
 	if(mail('rhildred@gmail.com', $subject, $message, $headers)){
