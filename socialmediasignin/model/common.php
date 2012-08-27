@@ -21,7 +21,8 @@ function run_curl($url, $method = 'GET', $postvals = null){
     if ($method == 'GET'){
         $options = array(
             CURLOPT_URL => $url,
-            CURLOPT_RETURNTRANSFER => 1
+            CURLOPT_RETURNTRANSFER => 1,
+        	CURLOPT_SSL_VERIFYPEER => false
         );
         curl_setopt_array($ch, $options);
     //POST / PUT request: send post object and return data transfer
@@ -29,13 +30,16 @@ function run_curl($url, $method = 'GET', $postvals = null){
         $options = array(
             CURLOPT_URL => $url,
             CURLOPT_POST => 1,
-            CURLOPT_POSTFIELDS => $postvals,
-            CURLOPT_RETURNTRANSFER => 1
+            CURLOPT_POSTFIELDS => http_build_query($postvals),
+            CURLOPT_RETURNTRANSFER => 1,
+        	CURLOPT_SSL_VERIFYPEER => false
         );
         curl_setopt_array($ch, $options);
     }
-    
-    $response = curl_exec($ch);
+    if( ! $response = curl_exec($ch)) 
+    { 
+        trigger_error(curl_error($ch)); 
+    } 
     curl_close($ch);
     
     return $response;

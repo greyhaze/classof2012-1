@@ -12,9 +12,7 @@ $postvals = array('grant_type' => 'authorization_code',
 
 //get JSON access token object (with refresh_token parameter)
 $sReturn = run_curl(ACCESS_TOKEN_ENDPOINT, 'POST', $postvals);
-echo $sReturn;
 $token = json_decode($sReturn);
-print_r($token);
 
 //construct URI to fetch profile for current user
 $profile_url = "https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" . $token->access_token;
