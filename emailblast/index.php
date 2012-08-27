@@ -21,8 +21,14 @@ if($action == 'Subscribe'){
 	$oEmail = new Email;
 	$oEmail->email = $_POST['email'];
 	$oEmail->save();
+}elseif($action == 'Delete'){
+	$oEmail = Email::find_by_email($_GET['email']);
+	if($oEmail && $oEmail->delete()){
+		echo "1 email deleted";
+	}else{
+		echo "0 emails deleted";
+	}
 }elseif($action == 'Unsubscribe'){
-	print_r($_GET);
 	$oEmail = Email::find_by_email($_GET['email']);
 	if($oEmail && $oEmail->delete()){
 		echo "You have been unsubscribed";
@@ -30,11 +36,14 @@ if($action == 'Subscribe'){
 		echo "Unsubscription failed";
 	}
 	exit();
+}elseif($action == 'Send'){
+	include 'model/helpers.php';
+	sendEmails();
 }
 
-if($action == 'Edit List'){
-	include 'views/edit.php';
-}else{
+if($action == '' || $action == 'Send'){
 	include 'views/email.php';
+}else{
+	include 'views/edit.php';
 }
 ?>
