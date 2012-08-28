@@ -19,5 +19,5 @@ $profile_url = "https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_to
 
 //fetch profile of current user
 $oProfile = json_decode(run_curl($profile_url, 'GET'));
-
+?>
 

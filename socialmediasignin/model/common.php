@@ -2,7 +2,7 @@
 define('KEY', '95842300516.apps.googleusercontent.com');
 define('SECRET', 'JB2DBmIDDKRmNgsbcmwK4yKm');
 
-define('CALLBACK_URL', 'http://localhost/classof2012/socialmediasignin/');
+define('CALLBACK_URL', 'http://'. $_SERVER['HTTP_HOST'] . '/classof2012/socialmediasignin/');
 define('AUTHORIZATION_ENDPOINT', 'https://accounts.google.com/o/oauth2/auth');
 define('ACCESS_TOKEN_ENDPOINT', 'https://accounts.google.com/o/oauth2/token');
 

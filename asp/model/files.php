@@ -24,7 +24,7 @@ function bNewestTxt($sFCur){
 		fputs($fIn, file_get_contents($sFTmp));
 		fputs($fIn, "\n<?php } ?>");
 		fclose($fIn);
-//		unlink($sFTmp);
+		unlink($sFTmp);
 		return false;
 	}
 	return true;

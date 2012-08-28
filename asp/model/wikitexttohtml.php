@@ -160,10 +160,10 @@ class WikiTextToHTML {
 			// determine output format
 			if('' == $in) {
 			} else if ('{{{' == trim($in)) {
-				$output[] = '<textarea disabled="true">';
+				$output[] = '<textarea readonly="readonly">';
 				$codestate = CS_CODE;
 			} else if ('}}}' == trim($in)) {
-				$output[] = '<textarea>';
+				$output[] = '</textarea>';
 				$codestate = CS_NONE;
 			} else if (
 				$in[0] != '=' &&
